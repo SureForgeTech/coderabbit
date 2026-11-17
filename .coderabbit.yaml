@@ -27,6 +27,12 @@ reviews:
       - "WIP"
       - "chore(deps)"
       - "Bump "
+  path_instructions:
+    - path: "**"
+      instructions: |
+        Focus on real bugs, security problems, missing or weak tests, and
+        accessibility. Keep style and formatting comments to a minimum;
+        linters handle those. Say nothing when a change looks fine.
   path_filters:             # skip lockfiles, generated, vendored and build output
     - "!**/package-lock.json"
     - "!**/pnpm-lock.yaml"
