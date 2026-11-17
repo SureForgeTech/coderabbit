@@ -1,0 +1,56 @@
+# Org-wide CodeRabbit settings for SureForgeTech's public repositories.
+# CodeRabbit reads this repository (named "coderabbit") for any repo in the
+# org that has no .coderabbit.yaml of its own. Keep this file small.
+#
+# Goal: spend the free open-source review allowance on human-authored
+# changes to main, and stay quiet otherwise. A CodeRabbit review is advice
+# only. It is never a required check; our normal independent review decides.
+reviews:
+  profile: chill            # fewer, higher-signal comments than "assertive"
+  high_level_summary: true
+  poem: false
+  sequence_diagrams: false
+  collapse_walkthrough: true
+  auto_review:
+    enabled: true
+    drafts: false           # no reviews while a PR is a draft
+    auto_incremental_review: true   # on later pushes, review only the new changes
+    auto_pause_after_reviewed_commits: 3   # stop auto-reviewing after 3 reviewed pushes; comment @coderabbitai review to resume
+    # base_branches is left unset on purpose: only PRs into the default
+    # branch (main) are reviewed automatically.
+    ignore_usernames:       # skip bot-authored PRs
+      - "dependabot[bot]"
+      - "dependabot"
+      - "github-actions[bot]"
+      - "abd-oss-lane[bot]"
+    ignore_title_keywords:
+      - "WIP"
+      - "chore(deps)"
+      - "Bump "
+  path_filters:             # skip lockfiles, generated, vendored and build output
+    - "!**/package-lock.json"
+    - "!**/pnpm-lock.yaml"
+    - "!**/yarn.lock"
+    - "!**/Cargo.lock"
+    - "!**/poetry.lock"
+    - "!**/uv.lock"
+    - "!**/Gemfile.lock"
+    - "!**/Package.resolved"
+    - "!**/*.lock"
+    - "!**/*.min.js"
+    - "!**/*.map"
+    - "!**/*.svg"
+    - "!**/*.snap"
+    - "!**/dist/**"
+    - "!**/build/**"
+    - "!**/out/**"
+    - "!**/coverage/**"
+    - "!**/generated/**"
+    - "!**/__generated__/**"
+    - "!**/vendor/**"
+    - "!**/node_modules/**"
+    - "!**/THIRD_PARTY_NOTICES*"
+    - "!**/CHANGELOG*.md"
+    - "!changelog.d/**"
+chat:
+  art: false
